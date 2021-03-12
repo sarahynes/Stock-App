@@ -11,10 +11,14 @@ public class Main {
     }
 
     /**
-     * Returns data for given stock ticker
-     * @param args stock ticker
-     * @throws IOException
-     * @throws InterruptedException
+     * This application will take a stock ticker as a command line input. For example, "AAPL" is Apple's
+     * ticker on the New York Stock Exchange. The program performs 2 real-time API calls to AlphaVantage,
+     * an API for sourcing stock data. It will print out information about the stock to the user. Examples
+     * of data shown are daily price, low/high price for the day, volume, percent change, etc.
+     *
+     * @param args stock ticker (example: "AAPL")
+     * @throws IOException when JSON parsing fails
+     * @throws InterruptedException when API call is interrupted
      */
     public void run(String[] args) throws IOException, InterruptedException {
         if (args.length == 0){

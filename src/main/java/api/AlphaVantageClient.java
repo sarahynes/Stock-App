@@ -27,8 +27,8 @@ public class AlphaVantageClient{
      * Returns global quote endpoint response for given stock ticker
      * @param ticker stock ticker to gather data on
      * @return endpoint response containing data for given stock ticker
-     * @throws IOException
-     * @throws InterruptedException
+     * @throws IOException when JSON parsing fails
+     * @throws InterruptedException when API call is interrupted
      */
     public GlobalQuote getQuote(String ticker) throws IOException, InterruptedException {
 
