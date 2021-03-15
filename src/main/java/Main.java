@@ -21,7 +21,7 @@ public class Main {
      * @throws InterruptedException when API call is interrupted
      */
     public void run(String[] args) throws IOException, InterruptedException {
-        if (args.length == 0){
+        if (args.length != 1){
             System.out.println("Please provide single stock ticker as an argument.");
             return;
         }
@@ -34,6 +34,11 @@ public class Main {
         AlphaVantageClient client = new AlphaVantageClient(apiKey);
         GlobalQuote quote = client.getQuote(ticker);
         OverviewEndpointResponse overview = client.getOverview(ticker);
+
+        if (quote.getSymbol() == null){
+            System.out.println("Unable to find data for ticker " + ticker + ". Please provide a valid ticker.");
+            return;
+        }
 
         System.out.println("Symbol: " + quote.getSymbol());
         System.out.println("Description: " + overview.getDescription().substring(0, 200) + "...");
